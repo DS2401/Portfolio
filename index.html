@@ -165,6 +165,25 @@ footer {
             <textarea id="message" name="message" rows="4" required></textarea><br><br>
             <button type="submit">Send Message</button>
         </form>
+        <script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent actual form submission
+
+    // Get user inputs
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    // Format LinkedIn message
+    let linkedInMessage = `Hello, my name is ${encodeURIComponent(name)}.\n\nEmail: ${encodeURIComponent(email)}\n\nMessage: ${encodeURIComponent(message)}`;
+
+    // Replace 'your-linkedin-profile' with your actual LinkedIn profile ID
+    let linkedInURL = `https://www.linkedin.com/in/sdebbata//messaging/compose/?recipients=urn:li:fs_messagingThread:2&body=${linkedInMessage}`;
+
+    // Redirect to LinkedIn message page
+    window.open(linkedInURL, "_blank");
+  });
+</script>
     </section>
     
     <footer>
